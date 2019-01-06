@@ -23,7 +23,7 @@ vector<int> findCookieLines(Matrix &arr, int maxRow, int maxColumn) {
     matrix = arr;
     ::maxRow = maxRow;
     ::maxColumn = maxColumn;
-    // list the array that will contain the length of different lines of chips on cookie
+    // list is the vector that will contain the length of different lines of chips on cookie
     vector<int> list;
     for (int i = 0; i < maxRow; ++i) {
         for (int j = 0; j < maxColumn; ++j) {
@@ -57,6 +57,7 @@ int main() {
 
     list = findCookieLines(arr, 5, 5);
     printVector(list);
+    //Output is 2 1 5 2 2 as expected
     arr =  {{1, 0, 1, 0, 1},
             {1, 1, 0, 1, 1},
             {1, 0, 1, 0, 0},
@@ -65,6 +66,6 @@ int main() {
             {1, 1, 0, 0, 0}};
     list = findCookieLines(arr, 6, 5);
     printVector(list);
-
+    //Output is 8 1 2 1 5  as expected
     return 0;
 }
