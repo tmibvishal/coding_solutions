@@ -16,6 +16,7 @@ class classic_cookie_line_challenge_java
         if ((i + 1) != maxRow) recursion(i + 1, j);
         if ((j + 1) != maxColumn) recursion(i, j + 1);
         if (j>0) recursion(i, j - 1);
+        if (i>0) recursion(i-1, j);
     }
 
     static List<Integer> findCookieLines(int[][] arr, int maxRow, int maxColumn) {
