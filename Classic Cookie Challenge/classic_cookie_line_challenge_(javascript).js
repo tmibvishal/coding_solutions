@@ -1,34 +1,43 @@
-function findCokieLines(arr, row, column){
+function findCookieLines(matrix, maxRow, maxColumn) {
 
-    let count = 0;
-    function recursion(i,j){
-        if(arr[i][j] == 0) return;
-        arr[i][j] = 0;
-        count++;
-        if((i+1) != row) recursion(i+1, j);
-        if((j+1) != column) recursion(i, j+1);
+    let Count = 0;
+    function recursion(i, j) {
+        if (matrix[i][j] == 0) return;
+        matrix[i][j] = 0;
+        Count++;
+        if ((i + 1) != maxRow) recursion(i + 1, j);
+        if ((j + 1) != maxColumn) recursion(i, j + 1);
     }
 
     // list the array that will contain the length of different lines of chips on cookie
     let list = [];
-    for (let i = 0; i < row; ++i) {
-        for (let j = 0; j < column; ++j) {
-            if(arr[i][j] == 1){
-                recursion(i,j);
-                list.push(count);
-                // Resetting the count to 0 after counting the length of line
+    for (let i = 0; i < maxRow; ++i) {
+        for (let j = 0; j < maxColumn; ++j) {
+            if (matrix[i][j] == 1) {
+                recursion(i, j);
+                list.push(Count);
+                // Resetting the Count to 0 after Counting the length of line
                 // and adding that length to the list
-                count = 0;
+                Count = 0;
             }
         }
     }
     return list;
 }
 
-//Sample Try
-let arr = [[1,0,0,1,0],
-    [1,0,1,0,0],
-    [0,0,1,0,1],
-    [1,0,1,0,1],
-    [1,0,1,1,0]];
-console.log(findCokieLines(arr, 5,5));
+//----------------Sample Try----------------
+
+let arr =  [[1, 0, 0, 1, 0],
+            [1, 0, 1, 0, 0],
+            [0, 0, 1, 0, 1],
+            [1, 0, 1, 0, 1],
+            [1, 0, 1, 1, 0]];
+console.log(findCookieLines(arr, 5, 5));
+
+arr =  [[1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 1],
+        [1, 0, 1, 0, 0],
+        [1, 0, 1, 1, 1],
+        [1, 0, 1, 0, 0],
+        [1, 1, 0, 0, 0]];
+console.log(findCookieLines(arr, 6, 5));
