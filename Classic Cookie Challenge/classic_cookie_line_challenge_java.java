@@ -15,6 +15,7 @@ class classic_cookie_line_challenge_java
         Count++;
         if ((i + 1) != maxRow) recursion(i + 1, j);
         if ((j + 1) != maxColumn) recursion(i, j + 1);
+        if (j>0) recursion(i, j - 1);
     }
 
     static List<Integer> findCookieLines(int[][] arr, int maxRow, int maxColumn) {
@@ -39,7 +40,6 @@ class classic_cookie_line_challenge_java
 
 	public static void main (String[] args) throws java.lang.Exception
 	{
-        System.out.println("hello");
         int[][] arr = {{1, 0, 0, 1, 0},
                         {1, 0, 1, 0, 0},
                         {0, 0, 1, 0, 1},
@@ -56,6 +56,6 @@ class classic_cookie_line_challenge_java
                         {1, 1, 0, 0, 0}};
         list = findCookieLines(arr2, 6 ,5 );
         System.out.println(list);
-        // Output is [8, 1, 2, 1, 5] as expected
+        // Output is [8, 1, 3, 5] as expected
 	}
 }

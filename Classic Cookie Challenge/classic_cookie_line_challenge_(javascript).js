@@ -8,6 +8,7 @@ function findCookieLines(matrix, maxRow, maxColumn) {
         Count++;
         if ((i + 1) != maxRow) recursion(i + 1, j);
         if ((j + 1) != maxColumn) recursion(i, j + 1);
+        if (j > 0) recursion(i, j - 1);
     }
 
     // list is the array that will contain the length of different lines of chips on cookie
@@ -42,4 +43,4 @@ arr = [[1, 0, 1, 0, 1],
     [1, 0, 1, 0, 0],
     [1, 1, 0, 0, 0]];
 console.log(findCookieLines(arr, 6, 5));
-// Output is [8, 1, 2, 1, 5] as expected
+// Output is [8, 1, 3, 5] as expected
