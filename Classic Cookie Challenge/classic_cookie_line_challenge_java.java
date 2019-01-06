@@ -47,7 +47,7 @@ class classic_cookie_line_challenge_java
                         {1, 0, 1, 1, 0}};
         List<Integer> list = findCookieLines(arr, 5 ,5 );
         System.out.println(list);
-
+        // Output is [2, 1, 5, 2, 2] as expected
         int[][] arr2 = {{1, 0, 1, 0, 1},
                         {1, 1, 0, 1, 1},
                         {1, 0, 1, 0, 0},
@@ -56,5 +56,6 @@ class classic_cookie_line_challenge_java
                         {1, 1, 0, 0, 0}};
         list = findCookieLines(arr2, 6 ,5 );
         System.out.println(list);
+        // Output is [8, 1, 2, 1, 5] as expected
 	}
 }
